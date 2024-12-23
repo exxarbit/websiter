@@ -56,11 +56,11 @@ html, body {
   max-width: 300px; /* Максимальная ширина */
   position: relative; /* Для позиционирования аватара */
   overflow: hidden; /* Скрыть обрезанную часть */
-  box-shadow: 0 0 10px rgba(16, 72, 194, 0.5), 
-              0 0 20px rgba(25, 116, 235, 0.5), 
+  box-shadow: 0 0 10px rgba(16, 173, 194, 0.5), 
+              0 0 20px rgba(6, 206, 206, 0.5), 
               0 0 30px rgba(53, 22, 224, 0.5), 
-              0 0 40px rgba(24, 47, 177, 0.5), 
-              0 0 50px rgba(0, 0, 255, 0.5), 
+              0 0 40px rgba(122, 138, 228, 0.5), 
+              0 0 50px rgba(6, 148, 204, 0.5), 
               0 0 60px rgba(75, 0, 130, 0.5), 
               0 0 70px rgba(148, 0, 211, 0.5); /* Сияние вокруг панели */
 }
@@ -75,12 +75,31 @@ html, body {
   border-radius: 10px; /* Закругление углов обводки */
   background: transparent; /* Прозрачный фон для псевдоэлемента */
   border: 5px solid transparent; /* Создаем прозрачную рамку */
-  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-  background-origin: border-box; /* Начало градиента от границы */
-  background-clip: content-box, border-box; /* Обрезка градиента по краям */
+  box-shadow: 
+    0 0 5px rgba(255, 0, 0, 0.5), 
+    0 0 10px rgba(255, 127, 0, 0.5), 
+    0 0 15px rgba(255, 255, 0, 0.5), 
+    0 0 20px rgba(0, 255, 0, 0.5), 
+    0 0 25px rgba(0, 0, 255, 0.5), 
+    0 0 30px rgba(75, 0, 130, 0.5), 
+    0 0 35px rgba(148, 0, 211, 0.5); /* Сияние вокруг пузырьков */
+  animation: bubble 1.5s linear infinite; /* Анимация пузырьков */
   z-index: -1; /* Поместить обводку позади панели */
-  filter: blur(5px); /* Размытие обводки */
-  animation: glowing 1.5s linear infinite alternate; /* Анимация сияния */
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .panel img {
@@ -90,29 +109,29 @@ html, body {
   margin-bottom: 20px;
   position: relative; /* Для позиционирования обводки */
   z-index: 1; /* Убедитесь, что изображение поверх обводки */
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 
-              0 0 20px rgba(25, 116, 235, 0.5), 
+  box-shadow: 0 0 10px rgba(5, 149, 233, 0.5), 
+              0 0 20px rgba(175, 184, 235, 0.5), 
               0 0 30px rgba(8, 114, 175, 0.5), 
               0 0 40px rgba(24, 47, 177, 0.5), 
               0 0 50px rgba(0, 0, 255, 0.5), 
-              0 0 60px rgba(75, 0, 130, 0.5), 
-              0 0 70px rgba(148, 0, 211, 0.5); /* Сияние вокруг аватара */
+              0 0 60px rgba(130, 0, 0, 0.5), 
+              0 0 70px rgba(8, 86, 231, 0.5); /* Сияние вокруг аватара */
   animation: glowing 1.5s linear infinite alternate; /* Анимация сияния */
 }
 
 @keyframes glowing {
   0% {
-      box-shadow: 0 0 10px rgb(12, 144, 231), 
+      box-shadow: 0 0 10px rgb(19, 127, 250), 
                   0 0 20px rgb(11, 20, 63), 
                   0 0 30px rgb(13, 167, 238), 
-                  0 0 40px rgb(8, 69, 202), 
+                  0 0 40px rgb(17, 0, 255), 
                   0 0 50px rgb(16, 79, 172), 
-                  0 0 60px rgba(75, 0, 130, 1), 
+                  0 0 60px rgb(39, 92, 190), 
                   0 0 70px rgba(148, 0, 211, 1);
   }
   100% {
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 
-                  0 0 40px rgba(255, 127, 0, 0.5), 
+      box-shadow: 0 0 20px rgba(106, 21, 243, 0.5), 
+                  0 0 40px rgba(6, 197, 172, 0.5), 
                   0 0 60px rgba(0, 102, 255, 0.5), 
                   0 0 80px rgba(0, 217, 255, 0.5), 
                   0 0 100px rgba(0, 0, 255, 0.5), 

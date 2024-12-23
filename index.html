@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Запретить масштабирование -->
     <title>Дерево веб-сайтов</title>
     <link rel="stylesheet" href="class.css"> <!-- Подключаем CSS файл -->
     <style>
@@ -12,6 +12,16 @@
             overflow: hidden; /* Скрыть полосы прокрутки */
             margin: 0; /* Убираем отступы */
             padding: 0; /* Убираем внутренние отступы */
+            display: flex; /* Используем flexbox для центрирования */
+            justify-content: center; /* Центрируем по горизонтали */
+            align-items: center; /* Центрируем по вертикали */
+        }
+        .panel {
+            background-color: rgba(14, 13, 13, 0.8); /* Установите нужный цвет фона (полупрозрачный) */
+            position: relative; /* Для позиционирования элементов внутри панели */
+            z-index: 1; /* Убедитесь, что панель выше фонового видео */
+            padding: 20px; /* Добавьте отступы для контента */
+            border-radius: 10px; /* Закругление углов панели */
         }
     </style>
 </head>

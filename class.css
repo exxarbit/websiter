@@ -8,6 +8,14 @@ body {
   position: relative; /* Для позиционирования звезд */
 }
 
+html, body {
+  height: 100%; /* Задаем полную высоту для html и body */
+  width: 100%; /* Задаем полную ширину для html и body */
+  overflow: hidden; /* Скрыть полосы прокрутки */
+  margin: 0; /* Убираем отступы */
+  padding: 0; /* Убираем внутренние отступы */
+}
+
 #background-video {
   position: absolute;
   top: 50%;

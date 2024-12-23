@@ -15,6 +15,7 @@
             display: flex; /* Используем flexbox для центрирования */
             justify-content: center; /* Центрируем по горизонтали */
             align-items: center; /* Центрируем по вертикали */
+            position: relative; /* Для позиционирования звезд */
         }
         .panel {
             background-color: rgba(14, 13, 13, 0.8); /* Установите нужный цвет фона (полупрозрачный) */
@@ -22,6 +23,22 @@
             z-index: 1; /* Убедитесь, что панель выше фонового видео */
             padding: 20px; /* Добавьте отступы для контента */
             border-radius: 10px; /* Закругление углов панели */
+        }
+        .star {
+            position: absolute;
+            top: -10px; /* Начальная позиция над экраном */
+            width: 5px; /* Ширина звезды */
+            height: 5px; /* Высота звезды */
+            background-color: white; /* Цвет звезды */
+            border-radius: 50%; /* Закругленные края, чтобы создать эффект звезды */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Эффект сияния */
+            animation: fall linear; /* Анимация падения */
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh); /* Двигаемся вниз на 100% высоты экрана */
+            }
         }
     </style>
 </head>
@@ -41,8 +58,7 @@
       
       // Установка случайной позиции по оси X и случайной длительности анимации
       star.style.left = `${Math.random() * 100}vw`; // Случайная позиция по оси X
-      star.style.animationDuration = `${Math.random() * 3 + 5}s`; // Случайная скорость падения (от 5 до 8 секунд)
-      star.style.animationDelay = `${Math.random() * 1}s`; // Случайная задержка (до 1 секунды)
+      star.style.animationDuration = `${Math.random() * 4 + 8}s`; // Случайная скорость падения (от 8 до 12 секунд)
 
       document.body.appendChild(star);
       
@@ -53,14 +69,14 @@
   }
 
   // Создание звезд в цикле
-  setInterval(createStar, 1000); // Генерация новой звезды каждые 1000 мс
+  setInterval(createStar, 300); // Генерация новой звезды каждые 300 мс
 </script>
 
 <div class="panel">
     <img src="https://sun4-20.userapi.com/impg/m9_y5DYrai_BJNPYYmdEgvCX1VYp15tjKoGiNg/FBWYPlqXqiY.jpg?size=640x640&quality=95&sign=901b04ee69c28f2e6828f135abf5b883&type=album" alt="Картинка">
-    <a href="https://t.me/dozxerz" class="button" style="--i: 0;">Телеграм</a>
-    <a href="#" class="button" style="--i: 1;">Вк</a>
-    <a href="#" class="button" style="--i: 2;">Кнопка 3</a>
+    <a href="https://t.me/dozxerz" class="button" style="--i: 0;">Основа ТГ</a>
+    <a href="https://t.me/pymonet" class="button" style="--i: 1;">Канал TG</a>
+    <a href="https://vk.com/exxarbit" class="button" style="--i: 2;">VK</a>
 </div>
 
 </body>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Запретить масштабирование -->
     <title>EXXARBIT</title>
     <link rel="stylesheet" href="class.css"> <!-- Подключаем CSS файл -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <style>
         html, body {
             height: 100%; /* Задаем полную высоту для html и body */
@@ -16,6 +17,7 @@
             justify-content: center; /* Центрируем по горизонтали */
             align-items: center; /* Центрируем по вертикали */
             position: relative; /* Для позиционирования звезд */
+            font-family: 'Rubik Mono One', sans-serif; /* Применяем шрифт для всего тела */
         }
         .panel {
             background-color: rgba(14, 13, 13, 0.8); /* Установите нужный цвет фона (полупрозрачный) */
@@ -72,13 +74,24 @@
   setInterval(createStar, 300); // Генерация новой звезды каждые 300 мс
 </script>
 
-<div class="panel">
+
+<style>
+    .panel {
+        font-family: 'Rubik Mono One', sans-serif;
+        font-weight: bold;
+    }
+    .button {
+        font-family: 'Rubik Mono One', sans-serif;
+        font-weight: bold;
+    }
+</style>
+
+<div class="panel" style="font-family: 'Arial', sans-serif; font-weight: bold;">
     <img src="https://sun4-20.userapi.com/impg/m9_y5DYrai_BJNPYYmdEgvCX1VYp15tjKoGiNg/FBWYPlqXqiY.jpg?size=640x640&quality=95&sign=901b04ee69c28f2e6828f135abf5b883&type=album" alt="Картинка">
-    <a href="https://t.me/utilitapy" class="button" style="--i: 0;">Основа ТГ</a>
-    <a href="https://t.me/dozxerz" class="button" style="--i: 1;">Деф</a>
-    <a href="https://t.me/pymonet" class="button" style="--i: 1;">Канал TG</a>
+    <a href="https://t.me/utilitapy" class="button" style="--i: 0;">мой телеграм</a>
+    <a href="https://t.me/dozxerz" class="button" style="--i: 1;">деф</a>
+    <a href="https://t.me/pymonet" class="button" style="--i: 1;">телеграм канал</a>
     <a href="https://vk.com/exxarbit" class="button" style="--i: 2;">VK</a>
-    
 </div>
 
 </body>

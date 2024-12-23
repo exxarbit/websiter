@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дерево веб-сайтов</title>
+    <link rel="stylesheet" href="class.css"> <!-- Подключаем CSS файл -->
+</head>
+<body>
+
+<!-- Фоновое видео -->
+<video autoplay muted loop id="background-video">
+    <source src="https://play.vsthemes.org/fhd/46/70346.webm" type="video/mp4"> <!-- Замените 'your-video-file.mp4' на путь к вашему видео -->
+    Ваш браузер не поддерживает видео.
+</video>
+
+<!-- Создание звезд -->
+<script>
+  function createStar() {
+      const star = document.createElement('div');
+      star.className = 'star';
+      
+      // Установка случайной позиции по оси X и случайной длительности анимации
+      star.style.left = `${Math.random() * 100}vw`; // Случайная позиция по оси X
+      star.style.animationDuration = `${Math.random() * 3 + 5}s`; // Случайная скорость падения (от 5 до 8 секунд)
+      star.style.animationDelay = `${Math.random() * 1}s`; // Случайная задержка (до 5 секунд)
+
+      document.body.appendChild(star);
+      
+      // Удаление звезды после завершения анимации
+      star.addEventListener('animationend', () => {
+          star.remove();
+      });
+  }
+
+  // Создание звезд в цикле
+  setInterval(createStar, 1000); // Генерация новой звезды каждые 1000 мс
+</script>
+
+<div class="panel">
+    <img src="https://sun4-20.userapi.com/impg/m9_y5DYrai_BJNPYYmdEgvCX1VYp15tjKoGiNg/FBWYPlqXqiY.jpg?size=640x640&quality=95&sign=901b04ee69c28f2e6828f135abf5b883&type=album" alt="Картинка">
+    <a href="https://t.me/dozxerz" class="button" style="--i: 0;">Телеграм</a>
+    <a href="#" class="button" style="--i: 1;">Вк</a>
+    <a href="#" class="button" style="--i: 2;">Кнопка 3</a>
+</div>
+
+</body>
+</html>

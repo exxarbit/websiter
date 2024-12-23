@@ -1,0 +1,164 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Скрыть полосы прокрутки */
+  position: relative; /* Для позиционирования звезд */
+}
+
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1; /* Поместить видео на задний план */
+  transform: translate(-50%, -50%); /* Центрируем видео */
+  object-fit: cover; /* Чтобы видео покрывало весь экран */
+}
+
+.star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: rgb(255, 255, 255); /* Цвет звезд */
+  border-radius: 50%;
+  animation: fall linear infinite; /* Анимация падения звезд */
+}
+
+@keyframes fall {
+  0% {
+      top: -5%; /* Начальная позиция (выше видимой области) */
+  }
+  100% {
+      top: 100%; /* Конечная позиция (ниже видимой области) */
+  }
+}
+
+.panel {
+  background-color: rgb(14, 13, 13); /* Цвет фона панели */
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  width: 90%; /* Ширина панели адаптивная */
+  max-width: 300px; /* Максимальная ширина */
+  position: relative; /* Для позиционирования аватара */
+  overflow: hidden; /* Скрыть обрезанную часть */
+  box-shadow: 0 0 10px rgba(16, 72, 194, 0.5), 
+              0 0 20px rgba(25, 116, 235, 0.5), 
+              0 0 30px rgba(53, 22, 224, 0.5), 
+              0 0 40px rgba(24, 47, 177, 0.5), 
+              0 0 50px rgba(0, 0, 255, 0.5), 
+              0 0 60px rgba(75, 0, 130, 0.5), 
+              0 0 70px rgba(148, 0, 211, 0.5); /* Сияние вокруг панели */
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: -5px; /* Отступ сверху для обводки */
+  left: -5px; /* Отступ слева для обводки */
+  width: calc(100% + 10px); /* Размер обводки */
+  height: calc(100% + 10px); /* Размер обводки */
+  border-radius: 10px; /* Закругление углов обводки */
+  background: transparent; /* Прозрачный фон для псевдоэлемента */
+  border: 5px solid transparent; /* Создаем прозрачную рамку */
+  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-origin: border-box; /* Начало градиента от границы */
+  background-clip: content-box, border-box; /* Обрезка градиента по краям */
+  z-index: -1; /* Поместить обводку позади панели */
+  filter: blur(5px); /* Размытие обводки */
+  animation: glowing 1.5s linear infinite alternate; /* Анимация сияния */
+}
+
+.panel img {
+  border-radius: 50%; /* Круглая форма аватара */
+  width: 100px; /* Ширина аватара */
+  height: 100px; /* Высота аватара */
+  margin-bottom: 20px;
+  position: relative; /* Для позиционирования обводки */
+  z-index: 1; /* Убедитесь, что изображение поверх обводки */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 
+              0 0 20px rgba(25, 116, 235, 0.5), 
+              0 0 30px rgba(8, 114, 175, 0.5), 
+              0 0 40px rgba(24, 47, 177, 0.5), 
+              0 0 50px rgba(0, 0, 255, 0.5), 
+              0 0 60px rgba(75, 0, 130, 0.5), 
+              0 0 70px rgba(148, 0, 211, 0.5); /* Сияние вокруг аватара */
+  animation: glowing 1.5s linear infinite alternate; /* Анимация сияния */
+}
+
+@keyframes glowing {
+  0% {
+      box-shadow: 0 0 10px rgb(12, 144, 231), 
+                  0 0 20px rgb(11, 20, 63), 
+                  0 0 30px rgb(13, 167, 238), 
+                  0 0 40px rgb(8, 69, 202), 
+                  0 0 50px rgb(16, 79, 172), 
+                  0 0 60px rgba(75, 0, 130, 1), 
+                  0 0 70px rgba(148, 0, 211, 1);
+  }
+  100% {
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 
+                  0 0 40px rgba(255, 127, 0, 0.5), 
+                  0 0 60px rgba(0, 102, 255, 0.5), 
+                  0 0 80px rgba(0, 217, 255, 0.5), 
+                  0 0 100px rgba(0, 0, 255, 0.5), 
+                  0 0 120px rgba(75, 0, 130, 0.5), 
+                  0 0 140px rgba(148, 0, 211, 0.5);
+  }
+}
+
+.button {
+  display: block;
+  background-color: #08161f;
+  color: rgb(252, 249, 249);
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0; /* Скрываем кнопки до загрузки */
+  transform: translateY(20px); /* Начальная позиция для анимации */
+  animation: fadeInUp 0.5s forwards; /* Применяем анимацию */
+  animation-delay: calc(0.5s + var(--i) * 0.1); /* Задержка для каждой кнопки */
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.7); /* Сияние по краям кнопок */
+}
+
+.button:hover {
+  background-color: #050c14;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 1); /* Увеличиваем сияние при наведении */
+}
+
+@keyframes fadeInUp {
+  to {
+      opacity: 1; /* Увеличиваем непрозрачность */
+      transform: translateY(0); /* Возвращаем в исходное положение */
+  }
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  .panel {
+      width: 80%; /* Уменьшаем ширину для мобильных устройств */
+  }
+
+  .button {
+      padding: 8px; /* Уменьшаем размер кнопок */
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+      width: 95%; /* Уменьшаем ширину для очень маленьких экранов */
+  }
+
+  .button {
+      padding: 6px; /* Уменьшаем размер кнопок еще больше */
+  }
+}
